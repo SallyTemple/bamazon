@@ -1,4 +1,4 @@
-var mysql = require('promise-mysql');
+var mysql = require('mysql');
 var Table = require('cli-table');
 var inquirer = require('inquirer');
 
@@ -26,10 +26,9 @@ var connection = mysql.createConnection({
         }
         console.log('\n' + this.table.toString());
     };
-    connection.connect(function (err) {
-      if (err) throw err;
-      expressShopping();
-    });
+    connection.connect();
+      
+      
     
 //Ask the user what item he or she wants to purchase
 var expressShopping = function() {
@@ -42,8 +41,8 @@ var expressShopping = function() {
 
 var inventoryStock = function() {
 		inquirer.prompt([{
-		name: "id",
-		type: "input",
+		name: "product",
+		type: "list",
 		message: "What is the id of the product you want to purchase?",
       }, 
 

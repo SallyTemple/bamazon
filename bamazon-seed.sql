@@ -6,7 +6,6 @@ department_name,
 price,
 stock_quantity
 )values
-
 ("Shoes", "Clothing", 34, 20),
 ("Flatscreen TV", "Electronics", 2500, 15),
 ("Pampers", "Baby", 15, 40),
