@@ -5,16 +5,16 @@ var inquirer = require('inquirer');
 
 //Database Connection
 var connection = mysql.createConnection({
-      host: 
-      'local host',
-     // port: 3306,
+      
+      host: 'local host',
+     port: 3306,
       user: 'root',
       password: '',
       database: 'bamazon',
 });
 
 
-    this.table = new Table({
+   /* this.table = new Table({
       head: ['Item ID', 'Product Name', 'Price', 'Stock Quantity'],
   });
 
@@ -24,10 +24,13 @@ var connection = mysql.createConnection({
             this.table.push(
                 [this.results[i].item_id, this.results[i].product_name, '$'+ this.results[i].price, this.results[i].stock_quantity] );
         }
-        console.log('\n' + this.table.toString());
-    };
-    connection.connect();
+        console.log('\n' + this.table.toString());*/
+        
+        connection.connect(function (err) {
+            if (err) throw err;
+            console.log("connected" + connection.threadId);
       
+      });
       
     
 //Ask the user what item he or she wants to purchase
@@ -41,8 +44,8 @@ var expressShopping = function() {
 
 var inventoryStock = function() {
 		inquirer.prompt([{
-		name: "product",
-		type: "list",
+		name: "id",
+		type: "input",
 		message: "What is the id of the product you want to purchase?",
       }, 
 
@@ -92,4 +95,4 @@ var userStart = function() {
 };
 
 userStart();
-
+  
