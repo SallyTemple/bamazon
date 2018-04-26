@@ -9,22 +9,12 @@ var connection = mysql.createConnection({
       host: 'local host',
      port: 3306,
       user: 'root',
-      password: '',
+      password: 'LordHelpMe777%',
       database: 'bamazon',
 });
 
 
-   /* this.table = new Table({
-      head: ['Item ID', 'Product Name', 'Price', 'Stock Quantity'],
-  });
-
-  this.displayInventoryTable = function(results) {
-        this.results = results;
-        for (var i=0; i <this.results.length; i++) {
-            this.table.push(
-                [this.results[i].item_id, this.results[i].product_name, '$'+ this.results[i].price, this.results[i].stock_quantity] );
-        }
-        console.log('\n' + this.table.toString());*/
+  
         
         connection.connect(function (err) {
             if (err) throw err;
@@ -54,8 +44,9 @@ var inventoryStock = function() {
 		message: "How many unit of the product you want to purcahse?",
 
 	}]).then(function(data) {
-		connection.query('SELECT product_name, department_name, price, stock_quantity FROM products WHERE ?', {item_id: data.id}, function(err,res) {
-		console.log('\n  Choose what you want to purchase ' + data.quantity + ' ' + res[0].product_name + ' ' + res[0].department_name + ' at $' + res[0].price + ' each'
+		//connection.query('SELECT product_name, department_name, price, stock_quantity FROM products WHERE ?', {item_id: data.id}, function(err,res) {
+            connection.query('SELECT product_name, department_name, price, stock_quantity FROM bamazon WHERE ?', {item_id: data.id}, function(err,res) {
+        console.log('\n  Choose what you want to purchase ' + data.quantity + ' ' + res[0].product_name + ' ' + res[0].department_name + ' at $' + res[0].price + ' each'
 			);
 			if (res[0].stock_quantity >= data.quantity) {
 				var productQuantity = res[0].stock_quantity - data.quantity;
