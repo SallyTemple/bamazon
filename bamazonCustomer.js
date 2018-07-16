@@ -36,7 +36,7 @@ var inventoryStock = function() {
 		inquirer.prompt([{
 		name: "id",
 		type: "input",
-		message: "What is the id of the product you want to purchase?",
+		message: "What is the id of the product you want to purchasetest?",
       }, 
 
       {name: "quantity",
