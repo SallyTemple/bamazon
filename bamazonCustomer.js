@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
       host: 'local host',
      port: 3306,
       user: 'root',
-      password: '',
+      password: 'LordHelpMe777%',
       database: 'bamazon',
 });
 
@@ -45,7 +45,7 @@ var inventoryStock = function() {
 
 	}]).then(function(data) {
 		//connection.query('SELECT product_name, department_name, price, stock_quantity FROM products WHERE ?', {item_id: data.id}, function(err,res) {
-            connection.query('SELECT product_name, department_name, price, stock_quantity FROM bamazon WHERE ?', {item_id: data.id}, function(err,res) {
+            connection.query('SELECT product_name, department_name, price, stock_quantity FROM products = WHERE ?', {item_id: data.id}, function(err,res) {
         console.log('\n  Choose what you want to purchase ' + data.quantity + ' ' + res[0].product_name + ' ' + res[0].department_name + ' at $' + res[0].price + ' each'
 			);
 			if (res[0].stock_quantity >= data.quantity) {
